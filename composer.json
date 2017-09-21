@@ -1,0 +1,21 @@
+{
+    "name": "hamvorinf/yii2-ueditor",
+    "description": "Use ueditor in Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","ueditor","widget"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Hamvorinf",
+            "email": "hamvorinf@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "hamvorinf\\ueditor\\": ""
+        }
+    }
+}
