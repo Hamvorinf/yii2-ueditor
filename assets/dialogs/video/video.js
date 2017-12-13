@@ -117,15 +117,30 @@
         var width = $G("videoWidth"),
             height = $G("videoHeight"),
             url=$G('videoUrl').value,
+            h5videoUrl = $G('h5videoUrl').value,
             align = findFocus("videoFloat","name");
-        if(!url) return false;
+
+
+        if(!url && !h5videoUrl) return false;
         if ( !checkNum( [width, height] ) ) return false;
-        editor.execCommand('insertvideo', {
-            url: convert_url(url),
-            width: width.value,
-            height: height.value,
-            align: align
-        }, isModifyUploadVideo ? 'upload':null);
+
+        if(h5videoUrl) {
+            if(new RegExp(/[a-zA-z]+:\/\/[^\s]*\.(mp4|ogg|webm)/i).test(h5videoUrl)) {
+                // 带mp4
+                h5Html = '<video src="' + h5videoUrl + '"></video>'
+            } else {
+                h5Html = '<iframe src="' + h5videoUrl.replace(/(https|http):/i, '') + '" frameborder=0 allowfullscreen></iframe';
+            }
+
+            editor.execCommand('insertHtml', h5Html);
+        } else if(url) {
+            editor.execCommand('insertvideo', {
+                url: convert_url(url),
+                width: width.value,
+                height: height.value,
+                align: align
+            }, isModifyUploadVideo ? 'upload' : null);
+        }
     }
 
     /**

@@ -16,8 +16,8 @@
 }
 
 .tabbody .panel table td{vertical-align: middle;}
-#videoUrl {
-    width: 490px;
+#videoUrl, #h5videoUrl {
+    width: 470px;
     height: 21px;
     line-height: 21px;
     margin: 8px 5px;
@@ -632,4 +632,12 @@ i.file-preview.file-type-bmp,
 i.file-preview.file-type-png,
 i.file-preview.file-type-psd{
     background-position: -140px center;
+}
+
+.tb_video_url {
+    display: none;
+}
+
+.tabhead span[tabSrc="upload"] {
+    display: none;
 }
